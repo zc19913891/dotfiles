@@ -1,0 +1,4 @@
+--type-add
+html=.dot,.tpl
+--type-set
+dot=.dot,.tpl
