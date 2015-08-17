@@ -6,7 +6,7 @@ export ZSH=/Users/zhangchen/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="steeef"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,6 +51,11 @@ plugins=(git)
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/bin:/sbin"
+export HADOOP_HOME="/usr/local/Cellar/hadoop/2.6.0"
+export YARN_HOME="/usr/local/Cellar/hadoop/2.6.0"
+export HADOOP_CONF_DIR="/usr/local/Cellar/hadoop/2.6.0/libexec/etc/hadoop"
+export YARN_CONF_DIR="/usr/local/Cellar/hadoop/2.6.0/libexec/etc/hadoop"
+export HIVE_HOME="/usr/local/Cellar/hive"
 # export MANPATH="/usr/local/man:$MANPATH"
 # export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
 
@@ -103,6 +108,8 @@ alias dt="cd ~/Desktop"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias g='git'
 # alias em=emacs-24.4
-alias em='vim' # emacsclient -t -a ""
-alias vi='emacsclient -t -a ""'
+alias vi='vim' # emacsclient -t -a ""
+alias ec='emacsclient -t -a ""'
+alias hstart="/usr/local/Cellar/hadoop/2.6.0/sbin/start-dfs.sh;/usr/local/Cellar/hadoop/2.6.0/sbin/start-yarn.sh"
+alias hstop="/usr/local/Cellar/hadoop/2.6.0/sbin/stop-yarn.sh;/usr/local/Cellar/hadoop/2.6.0/sbin/stop-dfs.sh"
 export LC_CTYPE='zh_CN.UTF-8'

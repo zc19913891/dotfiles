@@ -47,6 +47,9 @@ brew install emacs
 # brew install homebrew/dupes/openssh
 # brew install homebrew/dupes/screen
 brew install homebrew/php/php55 --with-gmp
+brew install php55-xdebug
+brew install php55-redis
+brew install fcgi
 
 # Install font tools.
 # brew tap bramstein/webfonttools
@@ -79,9 +82,8 @@ brew install homebrew/php/php55 --with-gmp
 # brew install xz
 
 # Install other useful binaries.
-brew install ack
+brew install the_silver_searcher
 #brew install exiv2
-brew install git
 # brew install imagemagick --with-webp
 # brew install lua
 # brew install lynx
@@ -95,6 +97,17 @@ brew install git
 brew install tree
 # brew install webkit2png
 # brew install zopfli
+
+brew install ctags
+brew install global
+brew install automake
+brew install nvm
+brew install maven
+brew install hive
+brew install mysql
+brew install redis
+brew install nginx
+brew install caskroom/cask/brew-cask 
 
 # Remove outdated versions from the cellar.
 brew cleanup

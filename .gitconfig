@@ -24,13 +24,15 @@
     cl = clone --recursive
     ci = commit
     ca = commit -a -m
-    br = branch -a
+    br = branch
     co = checkout
     df = diff -U6
     ds = diff --staged
     l = log --graph --all --decorate
     d = difftool
     sh = diff-tree --no-commit-id --name-only -r
+    pl = pull
+    ps = push
     pbae = push bae musician
 [filter "media"]
     clean = git-media-clean %f
@@ -40,3 +42,9 @@
 [user]
 	name = zhangchen
 	email = zhangchen@oneniceapp.com
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

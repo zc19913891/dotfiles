@@ -42,7 +42,8 @@ Bundle 'Raimondi/delimitMate'
 
 " ack
 " <C-a>
-Bundle 'mileszs/ack.vim'
+" Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 
 " 括号快速高亮
 Bundle 'kien/rainbow_parentheses.vim'
@@ -63,6 +64,8 @@ Bundle 'tpope/vim-surround'
 " neocomplcache
 Bundle 'Shougo/neocomplcache.vim'
 
+Bundle 'majutsushi/tagbar'
+
 " Multiple
 Bundle 'terryma/vim-multiple-cursors'
 
@@ -72,12 +75,24 @@ Bundle 'kien/ctrlp.vim'
 " nerdtree
 Bundle 'scrooloose/nerdtree'
 
+Bundle 'aceofall/gtags.vim'
+
+Bundle 'vim-scripts/taglist.vim'
+
 " solarized
 " Bundle 'altercation/vim-colors-solarized'
 
 Bundle 'chriskempson/vim-tomorrow-theme'
 
 Bundle 'kchmck/vim-coffee-script'
+
+Bundle 'elzr/vim-json'
+
+Bundle 'pangloss/vim-javascript'
+
+Bundle 'mxw/vim-jsx'
+
+Bundle 'plasticboy/vim-markdown'
 
 Bundle 'vim-scripts/vim-stylus'
 
@@ -172,7 +187,8 @@ let Tlist_Use_Right_Window=1
 let Tlist_File_Fold_Auto_Close=1
 let Tlist_Exit_OnlyWindow = 1
 
-map <C-a> :Ack<CR>
+" map <C-a> :Ack<CR>
+map <C-g> :Ag<CR>
 
 " Ctrlp setting
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -191,7 +207,43 @@ let g:ctrlp_max_height = 25
 " nerdtree
 " autocmd vimenter * NERDTree
 
+let Tlist_Auto_Open=1
+let Tlist_Show_One_File=1     "不同时显示多个文件的tag，只显示当前文件的    
+let Tlist_Exit_OnlyWindow=1   "如果taglist窗口是最后一个窗口，则退出vim   
+let Tlist_Ctags_Cmd="/usr/local/bin/ctags" "将taglist与ctags关联
+
+set cscopetag
+set cscopeprg='gtags-cscope'
+
+let GtagsCscope_Auto_Load = 1
+let CtagsCscope_Auto_Map = 1
+let GtagsCscope_Quiet = 1
+
+if g:CtagsCscope_Auto_Map == 1
+    :nmap <C-\>0 :cs find 0 <C-R>=expand("<cword>")<CR><CR>
+    :nmap <C-\>1 :cs find 1 <C-R>=expand("<cword>")<CR><CR>
+    :nmap <C-\>2 :cs find 2 <C-R>=expand("<cword>")<CR><CR>
+    :nmap <C-\>3 :cs find 3 <C-R>=expand("<cword>")<CR><CR>
+    :nmap <C-\>f :cs find f
+    " Using 'CTRL-spacebar', the result is displayed in new horizontal window.
+    :nmap <C-@>0 :scs find 0 <C-R>=expand("<cword>")<CR><CR>
+    :nmap <C-@>1 :scs find 1 <C-R>=expand("<cword>")<CR><CR>
+    :nmap <C-@>2 :scs find 2 <C-R>=expand("<cword>")<CR><CR>
+    :nmap <C-@>3 :scs find 3 <C-R>=expand("<cword>")<CR><CR>
+    :nmap <C-@>f :scs find f
+    " Hitting CTRL-space *twice*, the result is displayed in new vertical window.
+    :nmap <C-@><C-@>0 :vert scs find 0 <C-R>=expand("<cword>")<CR><CR>
+    :nmap <C-@><C-@>1 :vert scs find 1 <C-R>=expand("<cword>")<CR><CR>
+    :nmap <C-@><C-@>2 :vert scs find 2 <C-R>=expand("<cword>")<CR><CR>
+    :nmap <C-@><C-@>3 :vert scs find 3 <C-R>=expand("<cword>")<CR><CR>
+    :nmap <C-@><C-@>f :vert scs find f
+    ":nmap <C-\><C-n> :cn<CR>
+    ":nmap <C-\><C-p> :cp<CR>
+endif
+
 set pastetoggle=<F9>
+
+" set mouse=a  " always use mouse "
 
 " 记住上次编辑位置
 :au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
