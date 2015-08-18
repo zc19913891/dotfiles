@@ -82,7 +82,7 @@ Bundle 'vim-scripts/taglist.vim'
 " solarized
 " Bundle 'altercation/vim-colors-solarized'
 
-Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 
 Bundle 'kchmck/vim-coffee-script'
 
@@ -137,8 +137,7 @@ set autoindent
 let &t_Co=256
 syntax enable
 
-colorscheme Tomorrow-Night 
-
+colorscheme Dracula
 
 " neocomplcache auto completion
 let g:neocomplcache_enable_at_startup = 1
